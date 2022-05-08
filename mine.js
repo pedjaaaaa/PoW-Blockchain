@@ -3,7 +3,7 @@ const Transaction = require('./models/Transaction');
 const UTXO = require('./models/UTXO');
 const db = require('./db');
 const {PUBLIC_KEY} = require('./config');
-const TARGET_DIFFICULTY = BigInt("0x0" + "F".repeat(63));
+const TARGET_DIFFICULTY = BigInt("0x00000" + "F".repeat(59));
 const BLOCK_REWARD = 10;
 
 let mining = true;
@@ -37,7 +37,7 @@ function mine() {
 
   db.blockchain.addBlock(block);
 
-  console.log(`Mined block #${db.blockchain.blockHeight()} with a hash of ${block.hash()} at nonce ${block.nonce}`);
+  console.log(`Mined block #${db.blockchain.blockHeight()} with a hash of ${block.hash()} at nonce ${block.nonce} previous hash of ${block.precedingHash}`);
 
   setTimeout(mine, 2500);
 }
