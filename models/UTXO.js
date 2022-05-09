@@ -3,6 +3,8 @@ class UTXO {
     this.owner = owner;
     this.amount = amount;
     this.spent = false;
+        // this.senderPublicKey = senderPublicKey;
+    // this.recieverPublicKey = recieverPublicKey;
   }
 }
 
