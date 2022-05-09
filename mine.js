@@ -38,7 +38,8 @@ function mine() {
   db.blockchain.addBlock(block);
 
   console.log(`Mined block #${db.blockchain.blockHeight()} with a hash of ${block.hash()} at nonce ${block.nonce} previous hash of ${block.precedingHash}`);
-
+  console.log("==========================================================================");
+  
   setTimeout(mine, 2500);
 }
 
